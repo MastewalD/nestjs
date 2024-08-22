@@ -1,4 +1,5 @@
-import { Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
+import { CreateNetNinjaDto } from './dto/create-netninja.dto';
 
 @Controller('netninja')
 export class NetninjaController {
@@ -14,7 +15,10 @@ export class NetninjaController {
 
     }
     @Post()
-    createNetNinja(){
+    createNetNinja(@Body("title") title:CreateNetNinjaDto){
+        return {
+            title
+        }
 
     }
     @Put(':id')
